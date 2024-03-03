@@ -2,11 +2,29 @@
 
 - name: Bootstrap
   hosts: localhost
-  tasks:
-  - name: Install a list of packages
-    ansible.builtin.apt:
-      pkg:
-      - git
+  pre_tasks:
+  - name: Ensure directory structure exists
+    ansible.builtin.file:
+      path: ~/.config/nix/
+      state: directory
+      recurse: true
+    become: yes
+
+  - name: Create a file and write to it
+    tags: all
+    ansible.builtin.file:
+      path: ~/.config/nix/nix.conf
+      state: touch
+    become: yes
+
+  - name: Add content to the file
+    tags: all
+    ansible.builtin.lineinfile:
+      path: ~/.config/nix/nix.conf
+      line: "experimental-features = nix-command flakes"
+      create: yes
+    become: yes
+
             
   roles:
     - role: danielrolls.nix
