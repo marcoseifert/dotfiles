@@ -7,7 +7,22 @@
     ansible.builtin.apt:
       pkg:
       - git
+            
   roles:
     - role: danielrolls.nix
+      tags:
+      - core
+      nix_commands:
+      - "nix run home-manager/release-23.11 switch -- switch --impure --flake .#core" 
+      
+    - role: danielrolls.nix
+      tags:
+      - dev
       nix_commands:
       - "nix run home-manager/release-23.11 switch -- switch --impure --flake .#dev" 
+      
+    - role: danielrolls.nix
+      tags:
+      - einstein
+      nix_commands:
+      - "nix run home-manager/release-23.11 switch -- switch --impure --flake .#einstein" 
