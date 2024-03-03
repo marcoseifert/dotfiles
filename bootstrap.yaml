@@ -1,0 +1,13 @@
+#!/usr/bin/env ansible-playbook
+
+- name: Bootstrap
+  hosts: localhost
+  tasks:
+  - name: Install a list of packages
+    ansible.builtin.apt:
+      pkg:
+      - git
+  roles:
+    - role: danielrolls.nix
+      nix_commands:
+      - "nix run home-manager/release-23.11 switch -- switch --impure --flake .#dev" 
