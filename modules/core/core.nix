@@ -76,7 +76,6 @@ in
   home.activation.stow =  lib.hm.dag.entryAfter ["writeBoundary"] ''
     ln -sf $HOME/dotfiles/modules/core/.zshrc $HOME/
     ln -sf $HOME/dotfiles/modules/core/.oh-my-zsh $HOME/
-    source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
   ''; 
 
   # Let Home Manager install and manage itself.

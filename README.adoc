@@ -5,6 +5,6 @@ To install run
 cd ~
 git clone git@github.com:marcoseifert/dotfiles.git
 cd dotfiles
-sudo ./bootstrap.sh
+sudo source ./bootstrap.sh
 ./bootstrap.yaml --extra-vars "profile=dev"
 ----

@@ -12,17 +12,18 @@
       recurse: true
 
   - name: Create a file and write to it
-    tags: all
     ansible.builtin.file:
       path: "~/.config/nix/nix.conf"
       state: touch
 
   - name: Add content to the file
-    tags: all
     ansible.builtin.lineinfile:
       path: "~/.config/nix/nix.conf"
       line: "experimental-features = nix-command flakes"
       create: yes
+
+  - name: Allow unfree packages
+    shell: export NIXPKGS_ALLOW_UNFREE=1
 
   roles:
     - role: danielrolls.nix
