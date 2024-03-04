@@ -2,7 +2,10 @@
 
 - name: Bootstrap
   hosts: localhost
+  vars:
+    profile: core
   pre_tasks:
+  
   - name: Ensure directory structure exists
     ansible.builtin.file:
       path: ~/.config/nix/
@@ -24,23 +27,9 @@
       line: "experimental-features = nix-command flakes"
       create: yes
     become: yes
-
             
   roles:
     - role: danielrolls.nix
-      tags:
-      - core
       nix_commands:
-      - "nix run home-manager/release-23.11 switch -- switch --impure --flake .#core" 
-      
-    - role: danielrolls.nix
-      tags:
-      - dev
-      nix_commands:
-      - "nix run home-manager/release-23.11 switch -- switch --impure --flake .#dev" 
-      
-    - role: danielrolls.nix
-      tags:
-      - einstein
-      nix_commands:
-      - "nix run home-manager/release-23.11 switch -- switch --impure --flake .#einstein" 
+      - "nix run home-manager/release-23.11 switch -- switch --impure --flake .#{{ profile }}" 
+

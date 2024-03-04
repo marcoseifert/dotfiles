@@ -108,3 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# fzf configuartaion
+export FZF_DEFAULT_OPTS=" --height 60% \
+ --bind 'ctrl-space:toggle-preview' \
+ --preview 'bat --style numbers,changes --color=always {}' \
+ --preview-window=:hidden"
