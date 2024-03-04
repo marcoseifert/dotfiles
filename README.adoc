@@ -1,0 +1,10 @@
+To install run
+
+[,sh]
+----
+cd ~
+git clone git@github.com:marcoseifert/dotfiles.git
+cd dotfiles
+sudo ./bootstrap.sh
+./bootstrap.yaml --extra-vars "profile=dev"
+----

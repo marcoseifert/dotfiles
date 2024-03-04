@@ -109,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Load nix environments
+source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+
 # fzf configuartaion
 export FZF_DEFAULT_OPTS=" --height 60% \
  --bind 'ctrl-space:toggle-preview' \
