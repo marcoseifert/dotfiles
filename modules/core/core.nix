@@ -30,6 +30,7 @@ in
     pkgs.bat
     pkgs.tmux
     pkgs.zoxide
+    pkgs.nerdfonts
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -77,6 +78,7 @@ in
   home.activation.stow =  lib.hm.dag.entryAfter ["writeBoundary"] ''
     ln -sf $HOME/dotfiles/modules/core/.zshrc $HOME/
     ln -sf $HOME/dotfiles/modules/core/.oh-my-zsh $HOME/
+    ln -sf $HOME/dotfiles/modules/core/.p10k.zsh $HOME/
   ''; 
 
   # Let Home Manager install and manage itself.
