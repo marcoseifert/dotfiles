@@ -1,0 +1,3 @@
+[submodule "modules/core/.oh-my-zsh/custom/themes/powerlevel10k"]
+	path = modules/core/.oh-my-zsh/custom/themes/powerlevel10k
+	url = https://gitee.com/romkatv/powerlevel10k.git
