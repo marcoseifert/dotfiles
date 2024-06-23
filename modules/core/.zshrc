@@ -79,7 +79,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf jump autojump)
+plugins=(git fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,8 +112,12 @@ source $ZSH/oh-my-zsh.sh
 # Load nix environments
 source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 
-# fzf configuartaion
+# fzf configuartaion for file preview
 export FZF_DEFAULT_OPTS=" --height 60% \
  --bind 'ctrl-space:toggle-preview' \
  --preview 'bat --style numbers,changes --color=always {}' \
  --preview-window=:hidden"
+
+# zoxide init
+eval "$(zoxide init zsh)"
+alias cd='z'
