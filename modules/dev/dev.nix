@@ -74,6 +74,11 @@ in
     enable = true;
     userName = lib.mkDefault "Marco Seifert";
     userEmail = lib.mkDefault "seifert.m@outlook.de";
+    extraConfig = {
+      core = {
+        editor = "vim";
+      };
+    };
   };
 
   # Let Home Manager install and manage itself.
